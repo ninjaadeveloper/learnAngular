@@ -1,0 +1,17 @@
+node js
+npm manager
+vs code
+
+tsc i -g typescript
+npm i typescript --save-dev
+
+node -v
+npm -v
+tsc -v
+
+implicit -- ju datatype khude samjh jaye
+explicit --jese ham datatype define karen
+
+
+-> arrow operator
+=> fat arrow operator
