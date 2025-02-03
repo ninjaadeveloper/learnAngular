@@ -1,0 +1,13 @@
+SPA - Single Page Application
+SSR - Server Side Rendering
+Node v-22
+
+Static Wesbite
+Dynamic Website
+
+node -v
+npm -v
+npm i -g @angular/cli
+ng new myApp
+ng serve | ng start
+npx @angular/cli@19 new myAppz
