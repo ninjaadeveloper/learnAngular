@@ -1,0 +1,16 @@
+<h1>Batch Code :{{bacthCode}}</h1>
+
+<hr>
+<h2>Students</h2>
+<ol>
+    <!-- <li>{{student1}}</li>
+    <li>{{student2}}</li> -->
+
+    <!-- <li>{{studenList[3]}}</li> -->
+
+    @for (std of studenList; track $index) {
+
+    <li>{{std}} and the number is {{$index}}</li>
+    }
+
+</ol>
