@@ -1,0 +1,7 @@
+components are the building blocks of any application.
+
+ng new my_new_app
+
+
+ng generate component component_name
+ng g c component_name
