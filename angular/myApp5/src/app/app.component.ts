@@ -1,0 +1,26 @@
+import { Component, NgModule } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, FormsModule],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  title = 'myApp5';
+  userName = '';
+  stdName = '';
+
+  result = '';
+  calculate(values: any) {
+    this.result = eval(values);
+  }
+
+  myFunc(name: any) {
+    // alert(name);
+    this.userName = name;
+  }
+
+}
