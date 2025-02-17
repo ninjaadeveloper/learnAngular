@@ -1,0 +1,59 @@
+<h1>{{ title }}</h1>
+
+<!-- If Condition -->
+<h2 *ngIf="myCondition">This is *ngIf Directive</h2>
+
+<!-- If else Condition -->
+<h2 *ngIf="myCondition1;else notCondition">Here is the If Part</h2>
+
+<!-- else part -->
+<ng-template #notCondition>
+  <h2>Here is the Else Part</h2>
+</ng-template>
+
+<hr>
+
+<!-- Switch Case -->
+<div [ngSwitch]="fav_food">
+
+  <!-- Case 1 -->
+  <h3 *ngSwitchCase="'Bar-BQ Platter'">My Fav Food is {{fav_food}}</h3>
+  <!-- Case 2 -->
+  <h3 *ngSwitchCase="'Chicken Qorma'">My Fav Food is {{fav_food}}</h3>
+  <!-- Case 3 -->
+  <h3 *ngSwitchCase="'Kheer'">My Fav Food is {{fav_food}}</h3>
+  <!-- Default Case -->
+  <h4 *ngSwitchDefault>Every Food is my Fav {{fav_food}}</h4>
+
+</div>
+
+<hr>
+<!-- ngFor -->
+<ol>
+  <li *ngFor="let dish of fav_dish">{{dish}}</li>
+</ol>
+
+<hr>
+<!-- ngStyle -->
+<div [ngStyle]="myStyle">ngStyle</div>
+
+<hr>
+<!-- ngClass -->
+
+<!-- <div [ngClass]="'box'">ngClass</div> -->
+<div [ngClass]="['box','myfont']">ngClass</div>
+
+<hr>
+
+<h1>Student Details</h1>
+
+<table border="1">
+  <thead>
+    <th>Name</th>
+    <th>Course</th>
+  </thead>
+  <tr *ngFor="let student of studentDetails">
+    <td>{{student.name}}</td>
+    <td>{{student.course}}</td>
+  </tr>
+</table>

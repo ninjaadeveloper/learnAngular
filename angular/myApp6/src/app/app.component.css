@@ -1,0 +1,11 @@
+.box {
+    background-color: red;
+    color: black;
+    padding: 100px;
+    margin: 100px;
+    border-radius: 100px;
+}
+
+.myfont {
+    font-size: 100px;
+}
