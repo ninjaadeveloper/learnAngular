@@ -1,0 +1,11 @@
+
+<!-- {{myUsers.users  | json}} -->
+
+<div *ngFor="let user of myUsers.users">
+<h3>{{user.id}}</h3>
+<img src={{user.image}} alt="User Image" height="150" width="auto">
+<h1>{{user.firstName}}</h1>
+<h5>{{user.gender}}</h5>
+<hr>
+</div>
+
