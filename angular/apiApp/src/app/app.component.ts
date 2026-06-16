@@ -1,26 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PostService } from './services/post.service';
-import { JsonPipe, NgFor } from '@angular/common';
-import { UserComponent } from './user/user.component';
+import { UserService } from './services/user.service';
+import { NgFor } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,JsonPipe,NgFor,UserComponent],
+  standalone: true,
+  imports: [RouterOutlet, NgFor,HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  myData : any;
-
-  constructor(private post:PostService) { }
-
-  ngOnInit(){
-    this.post.getPosts().subscribe((mypost)=>{
-      return this.myData = mypost;
+  data: any;
+  constructor(private user: UserService) { }
+  ngOnInit() {
+    this.user.getData().subscribe((response) => {
+      this.data = response;
+      console.log(this.data)
     })
   }
-
-
 
 }

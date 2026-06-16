@@ -5,14 +5,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  apiUrl = "https://dummyjson.com/users";
+
+  private apiUrl = 'https://jsonplaceholder.typicode.com/posts'; // API URL
+  constructor(private client: HttpClient) { }
 
 
-  constructor(private client:HttpClient) { }
-
-
-  getUsers(){
-   return this.client.get(this.apiUrl);
+  getData() {
+    return this.client.get(this.apiUrl);
   }
-
 }
