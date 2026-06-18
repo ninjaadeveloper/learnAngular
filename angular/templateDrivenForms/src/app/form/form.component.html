@@ -1,0 +1,117 @@
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">User Registration Form</h2>
+
+  <form
+    #regForm="ngForm"
+    (ngSubmit)="SubmitForm(regForm)"
+    class="border p-4 rounded bg-light shadow"
+  >
+    <div class="mb-3">
+      <label class="form-label">Full Name</label>
+      <input
+        type="text" 
+        name="fullName"
+        class="form-control"
+        ngModel
+        required
+        pattern="[A-Za-z]{3,30}"
+        #fullName="ngModel"
+      />
+      <div class="text-danger" *ngIf="fullName.invalid && fullName.touched">
+        <small *ngIf="fullName.errors?.['required']">
+          Full Name is required.
+        </small>
+          <small *ngIf="fullName.errors?.['pattern']">
+            Name must be in characters.
+          </small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        class="form-control"
+        ngModel
+        required
+        email
+        #email="ngModel"
+      />
+      <div class="text-danger" *ngIf="email.invalid && email.touched">
+        Valid email is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input
+        type="password"
+        name="password"
+        class="form-control"
+        ngModel
+        required
+        minlength="6"
+        #password="ngModel"
+      />
+      <div class="text-danger" *ngIf="password.invalid && password.touched">
+        Password must be at least 6 characters.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Gender</label><br />
+      <div class="form-check form-check-inline">
+        <input
+          type="radio"
+          name="gender"
+          value="Male"
+          required
+          ngModel
+          #gender="ngModel"
+          class="form-check-input"
+        />
+        Male
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          type="radio"
+          name="gender"
+          value="Female"
+          required
+          ngModel
+          #gender="ngModel"
+          class="form-check-input"
+        />
+        Female
+      </div>
+      <div class="text-danger" *ngIf="gender.invalid && gender.touched">
+        Please select a gender
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Country</label>
+      <select name="country" class="form-select" ngModel required #country="ngModel">
+        <option value="">Select Country</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="India">India</option>
+        <option value="UAE">UAE</option>
+      </select>
+      <div class="text-danger" *ngIf="country.invalid && country.touched">
+        Please select a country
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="regForm.invalid">
+      Register
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary ms-2"
+      (click)="regForm.resetForm()"
+    >
+      Reset
+    </button>
+  </form>
+</div>

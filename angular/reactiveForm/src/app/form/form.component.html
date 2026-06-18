@@ -1,0 +1,38 @@
+<h3>Extended Reactive Form</h3>
+
+<form [formGroup]="regForm" (ngSubmit)="submitForm()">
+  <!-- Name -->
+  <div>
+    <label>Name:</label>
+    <input type="text" formControlName="name" />
+    <div *ngIf="validate.name.touched && validate.name.invalid" style="color: red;">
+      <div *ngIf="validate.name.errors?.['required']">Name is required</div>
+      <div *ngIf="validate.name.errors?.['pattern']">Name is invalid</div>
+      <div *ngIf="validate.name.errors?.['minlength']">Minimum 3 characters</div>
+      <div *ngIf="validate.name.errors?.['maxlength']">Maximum 20 characters</div>
+    </div>
+  </div> 
+
+  <!-- Email -->
+  <div>
+    <label>Email:</label>
+    <input type="email" formControlName="email" />
+    <div *ngIf="validate.email.touched && validate.email.invalid" style="color: red;">
+      <div *ngIf="validate.email.errors?.['required']">Email is required</div>
+      <div *ngIf="validate.email.errors?.['email']">Invalid email format</div>
+    </div>
+  </div>
+
+  <!-- Password -->
+  <div>
+    <label>Password:</label>
+    <input type="password" formControlName="password" />
+    <div *ngIf="validate.password.touched && validate.password.invalid" style="color: red;">
+      <div *ngIf="validate.password.errors?.['required']">Password is required</div>
+      <div *ngIf="validate.password.errors?.['minlength']">Minimum 6 characters</div>
+      <div *ngIf="validate.password.errors?.['maxlength']">Maximum 15 characters</div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="regForm.invalid">Submit</button>
+</form>
